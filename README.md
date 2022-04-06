@@ -1,20 +1,3 @@
-![Last commit](https://img.shields.io/github/last-commit/startrug/selenium-python-framework?color=9cf&logo=git)
-![GitHub top language](https://img.shields.io/github/languages/top/startrug/selenium-python-framework?color=blue)
-
-# :warning: Important notice
-I would like to inform everyone who is interested in this project that I decided to go back to working on it.
-I am planning to implement some major changes like separating framework from tests, adding sample tests for another website than phptravels.com and removing tests implemented before.
-Thank you guys for forking and giving stars for this project. I appreciate it a lot!
-
-# Test Automation Project
-
-This is my first test automation project based on Selenium-Webdriver with Python. It's still developing package of automated tests of [phptravels.net](https://phptravels.net) demo website.
-The collection of tests contains:
-- user login tests (correct / incorrect login and password)
-- hotels search tests
-- flights search tests
-- tours search tests
-- transfers search tests
 
 ## Project Structure
 Here you can find a short description of main directories and it's content
@@ -34,9 +17,6 @@ Here you can find a short description of main directories and it's content
         self.logger.info(f"Setting destination: {destination}")
         self.driver.find_element(*SearchHotelsFormLocators.destination_inactive).click()
 ```
-![Logs screenshot](https://raw.githubusercontent.com/startrug/phptravels-selenium-py/screenshots/logger.png "Logs screenshot")
-- the ability to easily generate legible and attractive test reports using Allure (for more look [Generate Test Report](README.md#generate-test-report) section below)
-- tests can be run on popular browsers - Chrome and Firefox are preconfigured in DriverFactory class and both can be select in [conftest.py](tests/conftest.py), e.g.
 ```
 @pytest.fixture()
 def setup(request):
@@ -50,7 +30,7 @@ To enjoy the automated tests, develop the framework or adapt it to your own purp
 Run the command below in terminal:
 
 ```
-$ pip install -r requirements.txt
+$ python -m pip install -r requirements.txt
 ```
 
 ## Run Automated Tests
@@ -59,7 +39,14 @@ To run selected test without Allure report you need to set pytest as default tes
 ```
 File > Settings > Tools > Python Integrated Tools > Testing
 ```
-After that you just need to choose one of the tests from "tests" directory and click "Run test" green arrow. There are 2 versions of test in each test file. In general test cases you can easily modify test inputs. Data-driven tests base on xlsx files from [utils](utils) directory. 
+After that you just need to choose one of the tests from "tests" directory and click "Run test" green arrow. There are 2 versions of test in each test file. In general test cases you can easily modify test inputs. 
+
+under the tests folder find the test_homepage.py file, it contains tests as below
+
+1) Open Browser
+2) Navigate to Home Page
+3) Login with credentials
+4) Open Samsung phone and add to cart
 
 ## Generate Test Report
 
@@ -68,10 +55,6 @@ To generate all tests report using Allure you need to run tests by command first
 $ pytest --alluredir=<reports directory path>
 ```
 After that you need to use command:
-```
-$ allure serve <reports directory path>
-```
-![Allure report screenshot](https://raw.githubusercontent.com/startrug/phptravels-selenium-py/screenshots/allure_report.png "Allure report screenshot")
 
 Report is generated in Chrome browser.
 

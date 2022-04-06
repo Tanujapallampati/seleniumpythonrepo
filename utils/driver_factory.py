@@ -7,6 +7,7 @@ from msedge.selenium_tools import EdgeOptions, Edge
 from extensions.webdriver_extended import WebDriverExtended
 
 
+
 class DriverFactory:
     @staticmethod
     def get_driver(config) -> WebDriverExtended:
